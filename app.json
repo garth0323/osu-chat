@@ -1,0 +1,5 @@
+{
+  "name": "Ruby OSU",
+  "description": "A barebones Ruby on Rails app",
+  "repository": "https://github.com/binnacle-io/binnacle-rails-deploy-to-heroku"
+}

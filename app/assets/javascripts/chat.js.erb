@@ -1,0 +1,16 @@
+$( document ).ready(function() {
+
+  var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>');
+  var channel = pusher.subscribe('chat');
+  
+  pusher.connection.bind('connected', function () {
+    var socket_id = pusher.connection.socket_id;
+    $('#socket_id').val(socket_id);
+  });
+
+  channel.bind('new_message', function (data) {
+    var list_item = "<a href='#' class='list-group-item'><h4 class='list-group-item-heading'>" + data.name + "</h4><p class='list-group-item-text'>" + data.message + "</p></a>"
+    $('.chat_messages').prepend(list_item);
+  });
+});
+

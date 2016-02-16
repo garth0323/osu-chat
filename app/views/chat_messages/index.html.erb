@@ -1,0 +1,16 @@
+<div class='container'>
+  <div class="jumbotron">
+    <div class="list-group chat_messages">
+      <%= render @chat_message %>
+    </div>
+    
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  </div>
+
+  <%= bootstrap_form_for @chat_message, remote: true do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_area :message %>
+      <%= hidden_field_tag :socket_id %>
+      <%= f.submit %>
+  <% end %>
+</div>
